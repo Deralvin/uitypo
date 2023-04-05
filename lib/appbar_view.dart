@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class CanvasView extends StatelessWidget{
+class CanvasView extends StatelessWidget {
   Widget title;
   Color appBarBackground;
   final List<Widget>? actions;
@@ -10,69 +10,61 @@ class CanvasView extends StatelessWidget{
   Color bottomBackgroundColor;
   final int currentIndexTab;
   bool isBottomNavigationBar;
-  CanvasView({
-    Key? key,required this.title,
-    required this.appBarBackground,
-    this.actions,this.bodies,
-    this.backgroundColor,
-    this.currentIndexTab=0,
-    this.isBottomNavigationBar=false,
-    this.bottomBackgroundColor = Colors.white
-  });
+  CanvasView(
+      {Key? key,
+      required this.title,
+      required this.appBarBackground,
+      this.actions,
+      this.bodies,
+      this.backgroundColor,
+      this.currentIndexTab = 0,
+      this.isBottomNavigationBar = false,
+      this.bottomBackgroundColor = Colors.white});
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      backgroundColor:backgroundColor,
-      appBar: AppBar(
-        centerTitle: true,
-        title: title,
-        backgroundColor: appBarBackground,
-        actions: actions,
-      ),
-      body: bodies,
-      bottomNavigationBar:(isBottomNavigationBar==false)?null:
-          Theme(
-            data:  Theme.of(context).copyWith(
-                canvasColor: bottomBackgroundColor,
-                primaryColor: Colors.white,
-                textTheme: Theme.of(context).textTheme.copyWith(
-                    caption: TextStyle(color: Colors.grey)
-                )
-            ),
-            child:BottomNavigationBar(
-
-                selectedItemColor: Colors.green,
-                unselectedItemColor: Colors.grey,
-                backgroundColor: bottomBackgroundColor,
-                currentIndex: currentIndexTab,
-                // onTap: (int index) {
-                //   setState(() {
-                //     tabIndex = index;
-                //   });
-                // },
-                items: [
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.home),
-                    title: Text('Home'),
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.person),
-                    title: Text('Profile'),
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.av_timer_outlined),
-                    title: Text('History'),
-                  ),
-                  BottomNavigationBarItem(
-                    icon: Icon(Icons.settings),
-                    title: Text('Setting'),
-                  ),
-                ]),
-          )
-
-    );
+        backgroundColor: backgroundColor,
+        appBar: AppBar(
+          centerTitle: true,
+          title: title,
+          backgroundColor: appBarBackground,
+          actions: actions,
+        ),
+        body: bodies,
+        bottomNavigationBar: (isBottomNavigationBar == false)
+            ? null
+            : Theme(
+                data: Theme.of(context).copyWith(
+                    canvasColor: bottomBackgroundColor,
+                    primaryColor: Colors.white,
+                    textTheme: Theme.of(context)
+                        .textTheme
+                        .copyWith(caption: TextStyle(color: Colors.grey))),
+                child: BottomNavigationBar(
+                    selectedItemColor: Colors.green,
+                    unselectedItemColor: Colors.grey,
+                    backgroundColor: bottomBackgroundColor,
+                    currentIndex: currentIndexTab,
+                    // onTap: (int index) {
+                    //   setState(() {
+                    //     tabIndex = index;
+                    //   });
+                    // },
+                    items: [
+                      BottomNavigationBarItem(
+                        icon: Icon(Icons.home),
+                        label: "Home",
+                      ),
+                      BottomNavigationBarItem(
+                          icon: Icon(Icons.person), label: "Profile"),
+                      BottomNavigationBarItem(
+                          icon: Icon(Icons.av_timer_outlined),
+                          label: "History"),
+                      BottomNavigationBarItem(
+                          icon: Icon(Icons.settings), label: "Settings"),
+                    ]),
+              ));
     throw UnimplementedError();
   }
-
 }
