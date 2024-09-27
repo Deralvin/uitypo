@@ -40,7 +40,7 @@ class CanvasView extends StatelessWidget {
                     primaryColor: Colors.white,
                     textTheme: Theme.of(context)
                         .textTheme
-                        .copyWith(caption: TextStyle(color: Colors.grey))),
+                        .copyWith(bodySmall: TextStyle(color: Colors.grey))),
                 child: BottomNavigationBar(
                     selectedItemColor: Colors.green,
                     unselectedItemColor: Colors.grey,
